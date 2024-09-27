@@ -1,0 +1,5 @@
+// 1. Distribution of employees by education level
+db.Assignment2.aggregate([
+  { $group: { _id: "$education", count: { $sum: 1 } } },
+  { $sort: { count: -1 } }
+])

@@ -1,0 +1,6 @@
+// 4. Top 5 occupations with highest capital gain
+db.Assignment2.aggregate([
+  { $group: { _id: "$occupation", totalCapitalGain: { $sum: "$capital.gain" } } },
+  { $sort: { totalCapitalGain: -1 } },
+  { $limit: 5 }
+])

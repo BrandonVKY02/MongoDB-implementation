@@ -1,0 +1,9 @@
+// 3. Income distribution by gender and race
+db.Assignment2.aggregate([
+  { $group: {
+      _id: { gender: "$sex", race: "$race", income: "$income" },
+      count: { $sum: 1 }
+    }
+  },
+  { $sort: { count: -1 } }
+])

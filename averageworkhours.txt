@@ -1,0 +1,5 @@
+// 2. Average hours worked per week by occupation
+db.Assignment2.aggregate([
+  { $group: { _id: "$occupation", avgHoursPerWeek: { $avg: "$hours.per.week" } } },
+  { $sort: { avgHoursPerWeek: -1 } }
+])
